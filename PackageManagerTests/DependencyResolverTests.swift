@@ -77,7 +77,7 @@ class DependencyResolverTests: XCTestCase {
         
         let packagesWithNoDependencies = dependencyResolver.getPackagesWithNoDependencies(specifications)
         
-        XCTAssertEqual(packagesWithNoDependencies,["Piston","Carburater"])
+        XCTAssertEqual(packagesWithNoDependencies,Set<String>(["Piston","Carburater"]))
     }
     
 //    func testPerformanceExample() {
