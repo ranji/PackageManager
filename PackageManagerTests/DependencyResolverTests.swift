@@ -69,12 +69,15 @@ class DependencyResolverTests: XCTestCase {
     }
     
     func test_can_identify_packages_with_no_dependencies(){
-        let _ = [DependencySpecification(packageName: "Car",dependency: "Engine"),
+        let specifications = [DependencySpecification(packageName: "Car",dependency: "Engine"),
             DependencySpecification(packageName: "Engine",dependency: "Carburater"),
         DependencySpecification(packageName: "Engine",dependency: "Piston"),
         DependencySpecification(packageName: "Carburater",dependency: ""),
         DependencySpecification(packageName: "Piston",dependency: "")]
-        XCTAssertTrue(false)
+        
+        let packagesWithNoDependencies = dependencyResolver.getPackagesWithNoDependencies(specifications)
+        
+        XCTAssertEqual(packagesWithNoDependencies,["Piston","Carburater"])
     }
     
 //    func testPerformanceExample() {

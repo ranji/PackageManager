@@ -38,4 +38,15 @@ class DependencyResolver {
         */
         return dependencies
     }
+    
+    func getPackagesWithNoDependencies(dependencySpecifications:[DependencySpecification])->[String]{
+        var packageSet  = Set<String>()
+        for specification in dependencySpecifications{
+            if specification.dependency.isEmpty{
+                packageSet.insert(specification.packageName)
+            }
+        }
+        let packageArray = Array(packageSet)
+        return packageArray
+    }
 }
