@@ -1,0 +1,394 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		21BAFDDE1C4C124C003AAAAA /* PackageManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 21BAFDDD1C4C124C003AAAAA /* PackageManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		21BAFDE51C4C124C003AAAAA /* PackageManager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21BAFDDA1C4C124C003AAAAA /* PackageManager.framework */; };
+		21BAFDEA1C4C124C003AAAAA /* PackageManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BAFDE91C4C124C003AAAAA /* PackageManagerTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		21BAFDE61C4C124C003AAAAA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 21BAFDD11C4C124C003AAAAA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 21BAFDD91C4C124C003AAAAA;
+			remoteInfo = PackageManager;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		21BAFDDA1C4C124C003AAAAA /* PackageManager.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PackageManager.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		21BAFDDD1C4C124C003AAAAA /* PackageManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PackageManager.h; sourceTree = "<group>"; };
+		21BAFDDF1C4C124C003AAAAA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		21BAFDE41C4C124C003AAAAA /* PackageManagerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PackageManagerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		21BAFDE91C4C124C003AAAAA /* PackageManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackageManagerTests.swift; sourceTree = "<group>"; };
+		21BAFDEB1C4C124C003AAAAA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		21BAFDD61C4C124C003AAAAA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		21BAFDE11C4C124C003AAAAA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				21BAFDE51C4C124C003AAAAA /* PackageManager.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		21BAFDD01C4C124C003AAAAA = {
+			isa = PBXGroup;
+			children = (
+				21BAFDDC1C4C124C003AAAAA /* PackageManager */,
+				21BAFDE81C4C124C003AAAAA /* PackageManagerTests */,
+				21BAFDDB1C4C124C003AAAAA /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		21BAFDDB1C4C124C003AAAAA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				21BAFDDA1C4C124C003AAAAA /* PackageManager.framework */,
+				21BAFDE41C4C124C003AAAAA /* PackageManagerTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		21BAFDDC1C4C124C003AAAAA /* PackageManager */ = {
+			isa = PBXGroup;
+			children = (
+				21BAFDDD1C4C124C003AAAAA /* PackageManager.h */,
+				21BAFDDF1C4C124C003AAAAA /* Info.plist */,
+			);
+			path = PackageManager;
+			sourceTree = "<group>";
+		};
+		21BAFDE81C4C124C003AAAAA /* PackageManagerTests */ = {
+			isa = PBXGroup;
+			children = (
+				21BAFDE91C4C124C003AAAAA /* PackageManagerTests.swift */,
+				21BAFDEB1C4C124C003AAAAA /* Info.plist */,
+			);
+			path = PackageManagerTests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		21BAFDD71C4C124C003AAAAA /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				21BAFDDE1C4C124C003AAAAA /* PackageManager.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		21BAFDD91C4C124C003AAAAA /* PackageManager */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 21BAFDEE1C4C124C003AAAAA /* Build configuration list for PBXNativeTarget "PackageManager" */;
+			buildPhases = (
+				21BAFDD51C4C124C003AAAAA /* Sources */,
+				21BAFDD61C4C124C003AAAAA /* Frameworks */,
+				21BAFDD71C4C124C003AAAAA /* Headers */,
+				21BAFDD81C4C124C003AAAAA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PackageManager;
+			productName = PackageManager;
+			productReference = 21BAFDDA1C4C124C003AAAAA /* PackageManager.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		21BAFDE31C4C124C003AAAAA /* PackageManagerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 21BAFDF11C4C124C003AAAAA /* Build configuration list for PBXNativeTarget "PackageManagerTests" */;
+			buildPhases = (
+				21BAFDE01C4C124C003AAAAA /* Sources */,
+				21BAFDE11C4C124C003AAAAA /* Frameworks */,
+				21BAFDE21C4C124C003AAAAA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				21BAFDE71C4C124C003AAAAA /* PBXTargetDependency */,
+			);
+			name = PackageManagerTests;
+			productName = PackageManagerTests;
+			productReference = 21BAFDE41C4C124C003AAAAA /* PackageManagerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		21BAFDD11C4C124C003AAAAA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0710;
+				LastUpgradeCheck = 0710;
+				ORGANIZATIONNAME = freehub;
+				TargetAttributes = {
+					21BAFDD91C4C124C003AAAAA = {
+						CreatedOnToolsVersion = 7.1;
+					};
+					21BAFDE31C4C124C003AAAAA = {
+						CreatedOnToolsVersion = 7.1;
+					};
+				};
+			};
+			buildConfigurationList = 21BAFDD41C4C124C003AAAAA /* Build configuration list for PBXProject "PackageManager" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 21BAFDD01C4C124C003AAAAA;
+			productRefGroup = 21BAFDDB1C4C124C003AAAAA /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				21BAFDD91C4C124C003AAAAA /* PackageManager */,
+				21BAFDE31C4C124C003AAAAA /* PackageManagerTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		21BAFDD81C4C124C003AAAAA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		21BAFDE21C4C124C003AAAAA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		21BAFDD51C4C124C003AAAAA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		21BAFDE01C4C124C003AAAAA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				21BAFDEA1C4C124C003AAAAA /* PackageManagerTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		21BAFDE71C4C124C003AAAAA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 21BAFDD91C4C124C003AAAAA /* PackageManager */;
+			targetProxy = 21BAFDE61C4C124C003AAAAA /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		21BAFDEC1C4C124C003AAAAA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		21BAFDED1C4C124C003AAAAA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		21BAFDEF1C4C124C003AAAAA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				INFOPLIST_FILE = PackageManager/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.freehub.PackageManager;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		21BAFDF01C4C124C003AAAAA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				INFOPLIST_FILE = PackageManager/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.freehub.PackageManager;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		21BAFDF21C4C124C003AAAAA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = PackageManagerTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.freehub.PackageManagerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		21BAFDF31C4C124C003AAAAA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = PackageManagerTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.freehub.PackageManagerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		21BAFDD41C4C124C003AAAAA /* Build configuration list for PBXProject "PackageManager" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				21BAFDEC1C4C124C003AAAAA /* Debug */,
+				21BAFDED1C4C124C003AAAAA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		21BAFDEE1C4C124C003AAAAA /* Build configuration list for PBXNativeTarget "PackageManager" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				21BAFDEF1C4C124C003AAAAA /* Debug */,
+				21BAFDF01C4C124C003AAAAA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		21BAFDF11C4C124C003AAAAA /* Build configuration list for PBXNativeTarget "PackageManagerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				21BAFDF21C4C124C003AAAAA /* Debug */,
+				21BAFDF31C4C124C003AAAAA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 21BAFDD11C4C124C003AAAAA /* Project object */;
+}
