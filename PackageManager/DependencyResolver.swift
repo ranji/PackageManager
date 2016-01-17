@@ -9,5 +9,10 @@
 import Foundation
 
 class DependencyResolver {
+    var dependencySpeicfications : [String:[String]?]?
     
+    func resolve(dependencySpecifications:[String:[String]?]?) -> [String]?{
+        self.dependencySpeicfications = dependencySpecifications
+        return nil
+    }
 }
