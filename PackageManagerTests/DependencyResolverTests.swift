@@ -24,9 +24,11 @@ class DependencyResolverTests: XCTestCase {
         super.tearDown()
     }
 
-    func test_should_accept_dependency_specifications_as_dictionary() {
+    func test_should_accept_dependency_specifications_as_an_array_of_specification() {
         
-        let dependencySpecifications = ["Car":["Engine"],"Engine":[]]
+        let dependencySpecifications = [DependencySpecification(packageName: "Car",dependency: "Engine"),
+            DependencySpecification(packageName: "Engine",dependency: "")]
+        
         dependencyResolver.resolve(dependencySpecifications)
         
         XCTAssert(dependencyResolver.dependencySpecifications != nil)
@@ -34,14 +36,16 @@ class DependencyResolverTests: XCTestCase {
     }
     
     func test_should_resolve_all_dependencies(){
-        let dependencySpecifications = ["Car":["Engine"],"Engine":[]]
+        let dependencySpecifications = [DependencySpecification(packageName: "Car",dependency: "Engine"),
+            DependencySpecification(packageName: "Engine",dependency: "")]
         let dependencies = dependencyResolver.resolve(dependencySpecifications)
         
         XCTAssertEqual(dependencies?.count , 2)
     }
     
     func test_should_resolve_dependencies_in_order(){
-        let dependencySpecifications = ["Car":["Engine"],"Engine":[]]
+        let dependencySpecifications = [DependencySpecification(packageName: "Car",dependency: "Engine"),
+            DependencySpecification(packageName: "Engine",dependency: "")]
         let dependencies = dependencyResolver.resolve(dependencySpecifications)
         
         XCTAssertNotNil(dependencies)
@@ -64,6 +68,14 @@ class DependencyResolverTests: XCTestCase {
         XCTAssertTrue(false)
     }
     
+    func test_can_identify_packages_with_no_dependencies(){
+        let _ = [DependencySpecification(packageName: "Car",dependency: "Engine"),
+            DependencySpecification(packageName: "Engine",dependency: "Carburater"),
+        DependencySpecification(packageName: "Engine",dependency: "Piston"),
+        DependencySpecification(packageName: "Carburater",dependency: ""),
+        DependencySpecification(packageName: "Piston",dependency: "")]
+        XCTAssertTrue(false)
+    }
     
 //    func testPerformanceExample() {
 //        // This is an example of a performance test case.

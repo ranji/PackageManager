@@ -11,6 +11,8 @@
 		21BAFDF51C4C12A8003AAAAA /* DependencyResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BAFDF41C4C12A8003AAAAA /* DependencyResolver.swift */; };
 		21BAFDF61C4C12A8003AAAAA /* DependencyResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BAFDF41C4C12A8003AAAAA /* DependencyResolver.swift */; };
 		21BAFDF81C4C12E0003AAAAA /* DependencyResolverTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BAFDF71C4C12E0003AAAAA /* DependencyResolverTests.swift */; };
+		21BAFDFA1C4C51A3003AAAAA /* DependencySpecification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BAFDF91C4C51A3003AAAAA /* DependencySpecification.swift */; };
+		21BAFDFB1C4C51A3003AAAAA /* DependencySpecification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BAFDF91C4C51A3003AAAAA /* DependencySpecification.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -30,6 +32,7 @@
 		21BAFDEB1C4C124C003AAAAA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		21BAFDF41C4C12A8003AAAAA /* DependencyResolver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DependencyResolver.swift; sourceTree = "<group>"; };
 		21BAFDF71C4C12E0003AAAAA /* DependencyResolverTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DependencyResolverTests.swift; sourceTree = "<group>"; };
+		21BAFDF91C4C51A3003AAAAA /* DependencySpecification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DependencySpecification.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +77,7 @@
 			children = (
 				21BAFDDF1C4C124C003AAAAA /* Info.plist */,
 				21BAFDF41C4C12A8003AAAAA /* DependencyResolver.swift */,
+				21BAFDF91C4C51A3003AAAAA /* DependencySpecification.swift */,
 			);
 			path = PackageManager;
 			sourceTree = "<group>";
@@ -194,6 +198,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				21BAFDFA1C4C51A3003AAAAA /* DependencySpecification.swift in Sources */,
 				21BAFDF51C4C12A8003AAAAA /* DependencyResolver.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -204,6 +209,7 @@
 			files = (
 				21BAFDF81C4C12E0003AAAAA /* DependencyResolverTests.swift in Sources */,
 				21BAFDF61C4C12A8003AAAAA /* DependencyResolver.swift in Sources */,
+				21BAFDFB1C4C51A3003AAAAA /* DependencySpecification.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
