@@ -53,9 +53,7 @@ class DependencyResolverTests: XCTestCase {
     
     func test_empty_specification_should_yeild_zero_dependencies(){
         let dependencies = dependencyResolver.resolve(nil)
-        
         XCTAssertNil(dependencies)
-        XCTAssertTrue(false)
     }
     
     func test_dependency_should_appear_only_once_in_resolved_dependencies(){

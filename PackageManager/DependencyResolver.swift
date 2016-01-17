@@ -13,6 +13,13 @@ class DependencyResolver {
     
     func resolve(dependencySpecifications:[String:[String]?]?) -> [String]?{
         self.dependencySpecifications = dependencySpecifications
-        return nil
+        
+        var dependencies : [String]?
+        
+        guard let _ = dependencySpecifications else{
+            return dependencies
+        }
+        
+        return dependencies
     }
 }
