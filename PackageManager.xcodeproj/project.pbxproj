@@ -7,9 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		21BAFDDE1C4C124C003AAAAA /* PackageManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 21BAFDDD1C4C124C003AAAAA /* PackageManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		21BAFDE51C4C124C003AAAAA /* PackageManager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21BAFDDA1C4C124C003AAAAA /* PackageManager.framework */; };
-		21BAFDEA1C4C124C003AAAAA /* PackageManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BAFDE91C4C124C003AAAAA /* PackageManagerTests.swift */; };
+		21BAFDF51C4C12A8003AAAAA /* DependencyResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BAFDF41C4C12A8003AAAAA /* DependencyResolver.swift */; };
+		21BAFDF61C4C12A8003AAAAA /* DependencyResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BAFDF41C4C12A8003AAAAA /* DependencyResolver.swift */; };
+		21BAFDF81C4C12E0003AAAAA /* DependencyResolverTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BAFDF71C4C12E0003AAAAA /* DependencyResolverTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -24,11 +25,11 @@
 
 /* Begin PBXFileReference section */
 		21BAFDDA1C4C124C003AAAAA /* PackageManager.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PackageManager.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		21BAFDDD1C4C124C003AAAAA /* PackageManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PackageManager.h; sourceTree = "<group>"; };
 		21BAFDDF1C4C124C003AAAAA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		21BAFDE41C4C124C003AAAAA /* PackageManagerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PackageManagerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		21BAFDE91C4C124C003AAAAA /* PackageManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackageManagerTests.swift; sourceTree = "<group>"; };
 		21BAFDEB1C4C124C003AAAAA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		21BAFDF41C4C12A8003AAAAA /* DependencyResolver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DependencyResolver.swift; sourceTree = "<group>"; };
+		21BAFDF71C4C12E0003AAAAA /* DependencyResolverTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DependencyResolverTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,8 +72,8 @@
 		21BAFDDC1C4C124C003AAAAA /* PackageManager */ = {
 			isa = PBXGroup;
 			children = (
-				21BAFDDD1C4C124C003AAAAA /* PackageManager.h */,
 				21BAFDDF1C4C124C003AAAAA /* Info.plist */,
+				21BAFDF41C4C12A8003AAAAA /* DependencyResolver.swift */,
 			);
 			path = PackageManager;
 			sourceTree = "<group>";
@@ -80,8 +81,8 @@
 		21BAFDE81C4C124C003AAAAA /* PackageManagerTests */ = {
 			isa = PBXGroup;
 			children = (
-				21BAFDE91C4C124C003AAAAA /* PackageManagerTests.swift */,
 				21BAFDEB1C4C124C003AAAAA /* Info.plist */,
+				21BAFDF71C4C12E0003AAAAA /* DependencyResolverTests.swift */,
 			);
 			path = PackageManagerTests;
 			sourceTree = "<group>";
@@ -93,7 +94,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				21BAFDDE1C4C124C003AAAAA /* PackageManager.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -194,6 +194,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				21BAFDF51C4C12A8003AAAAA /* DependencyResolver.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -201,7 +202,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				21BAFDEA1C4C124C003AAAAA /* PackageManagerTests.swift in Sources */,
+				21BAFDF81C4C12E0003AAAAA /* DependencyResolverTests.swift in Sources */,
+				21BAFDF61C4C12A8003AAAAA /* DependencyResolver.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -305,6 +307,7 @@
 		21BAFDEF1C4C124C003AAAAA /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -317,12 +320,14 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.freehub.PackageManager;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		21BAFDF01C4C124C003AAAAA /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -341,17 +346,20 @@
 		21BAFDF21C4C124C003AAAAA /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = PackageManagerTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.freehub.PackageManagerTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		21BAFDF31C4C124C003AAAAA /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = PackageManagerTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
