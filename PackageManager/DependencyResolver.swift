@@ -20,6 +20,7 @@ class DependencyResolver {
             return dependencies
         }
         
+        dependencies = Array<String>()
         
         /*
         L ← Empty list that will contain the sorted elements
@@ -36,7 +37,42 @@ class DependencyResolver {
         else
         return L (a topologically sorted order)
         */
+        
+        let noDependencyPackages = getPackagesWithNoDependencies(specifications)
+        
+        // n in S
+        for noDependencyPackage in noDependencyPackages{
+            //add n to L
+            dependencies?.append(noDependencyPackage)
+            //get all packages dependent on given package -- edges from n -> m
+            let dependentPackageSpecs = self.dependencySpecifications?.filter({ (spec) -> Bool in
+               return spec.dependency == noDependencyPackage
+            })
+            guard let dependentPackages = dependentPackageSpecs else{
+                break
+            }
+            
+            for spec in dependentPackages{
+                let otherDependencies = self.dependencySpecifications?.filter({ (specification) -> Bool in
+                    return specification.packageName == spec.packageName && specification.dependency != spec.dependency
+                })
+                
+                removeSpecification(spec)
+                
+                if otherDependencies?.count == 0 {
+                    dependencies?.append(spec.packageName)
+                }
+            }
+        }
+        
         return dependencies
+    }
+    
+    func removeSpecification(specification:DependencySpecification){
+        let filtered = self.dependencySpecifications?.filter({ (spec) -> Bool in
+            return spec.packageName != specification.packageName && spec.dependency != specification.dependency
+        })
+        self.dependencySpecifications = filtered
     }
     
     func getPackagesWithNoDependencies(dependencySpecifications:[DependencySpecification])->Set<String>{
@@ -48,4 +84,6 @@ class DependencyResolver {
         }
         return packageSet
     }
+    
+    
 }
