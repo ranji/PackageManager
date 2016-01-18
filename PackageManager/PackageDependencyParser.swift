@@ -17,6 +17,11 @@ class PackageDependencyParser : PackageDependencyParsingProtocol{
         var graph = [String:[String]]()
         for specification in packageDependencySpecifications{
             let parts = specification.componentsSeparatedByString(": ")
+            
+            if parts.count != 2{
+                throw GraphError.WrongSpecificationFormat("\(specification) format is incorrect")
+            }
+            
             let packageName = parts[0]
             
             if packageName.isEmpty{

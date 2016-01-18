@@ -58,9 +58,21 @@ class PackageDependencyParserTests: XCTestCase {
         catch{
             XCTAssertTrue(false)
         }
+    }
+    
+    func test_should_throw_if_packageName_separater_is_missing(){
+        let packageList = ["failPackage"]
         
-        
-        
+        do {
+            let graph =  try dependencyParser.createDependencyGraph(packageList)
+            XCTAssertTrue(graph?.count == 0)
+        }catch GraphError.WrongSpecificationFormat{
+            XCTAssertTrue(true)
+        }
+        catch{
+            XCTAssertTrue(false)
+        }
+
     }
     
     
