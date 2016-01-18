@@ -10,7 +10,7 @@ import Foundation
 
 class DependencyResolver {
     
-    func resolve(packageSpecifications:[String:[String]]?) -> [String]?{
+    func resolve(packageSpecifications:[String:[String]]?) throws -> [String]?{
         
         var sortedDependencies : [String]?
         
@@ -75,6 +75,15 @@ class DependencyResolver {
             }
             
         }
+        
+        let cyclicalReferences = dependencySpecifications.filter({ (package,dependencies) -> Bool in
+            return dependencies != []
+            })
+        
+        if cyclicalReferences.count>0{
+            throw GraphError.CyclicDependencyDetected
+        }
+        
         return sortedDependencies
     }
     

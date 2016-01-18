@@ -28,14 +28,14 @@ class DependencyResolverTests: XCTestCase {
     func test_should_resolve_all_dependencies(){
         let dependencySpecifications = ["Car": ["Engine"], "Engine" :[]]
 
-        let dependencies = dependencyResolver.resolve(dependencySpecifications)
+        let dependencies = try! dependencyResolver.resolve(dependencySpecifications)
         
         XCTAssertEqual(dependencies?.count , 2)
     }
     
     func test_should_resolve_dependencies_in_order(){
         let dependencySpecifications = ["Car": ["Engine"], "Engine" :[]]
-        let dependencies = dependencyResolver.resolve(dependencySpecifications)
+        let dependencies = try! dependencyResolver.resolve(dependencySpecifications)
         
         XCTAssertNotNil(dependencies)
         
@@ -52,7 +52,7 @@ class DependencyResolverTests: XCTestCase {
                                 "Seat" : ["Cloth"],
                                 "Cloth" : []]
         
-        let dependencies = dependencyResolver.resolve(specifications)
+        let dependencies = try! dependencyResolver.resolve(specifications)
         
         XCTAssertNotNil(dependencies)
         
@@ -70,16 +70,21 @@ class DependencyResolverTests: XCTestCase {
     }
     
     func test_empty_specification_should_yeild_zero_dependencies(){
-        let dependencies = dependencyResolver.resolve(nil)
+        let dependencies = try! dependencyResolver.resolve(nil)
         XCTAssertNil(dependencies)
     }
     
-    func test_dependency_should_appear_only_once_in_resolved_dependencies(){
-        XCTAssertTrue(false)
-    }
-    
     func test_there_should_be_no_cyclic_dependency_specification(){
-        XCTAssertTrue(false)
+        let specifications = [  "Car" : ["Engine"],
+            "Engine" : ["Piston","Car" ],
+            "Piston" : []]
+        do {
+            let _ = try dependencyResolver.resolve(specifications)
+        } catch GraphError.CyclicDependencyDetected{
+            XCTAssertTrue(true)
+        } catch{
+            XCTAssertTrue(false)
+        }
     }
     
     func test_can_identify_packages_with_no_dependencies(){

@@ -17,3 +17,7 @@ class DependencySpecification {
         self.dependency = dependency
     }
 }
+
+enum GraphError:ErrorType{
+    case CyclicDependencyDetected
+}
