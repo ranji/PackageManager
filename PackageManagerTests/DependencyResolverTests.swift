@@ -26,16 +26,15 @@ class DependencyResolverTests: XCTestCase {
     
     
     func test_should_resolve_all_dependencies(){
-        let dependencySpecifications = [DependencySpecification(packageName: "Car",dependency: "Engine"),
-            DependencySpecification(packageName: "Engine",dependency: "")]
+        let dependencySpecifications = ["Car": ["Engine"], "Engine" :[]]
+
         let dependencies = dependencyResolver.resolve(dependencySpecifications)
         
         XCTAssertEqual(dependencies?.count , 2)
     }
     
     func test_should_resolve_dependencies_in_order(){
-        let dependencySpecifications = [DependencySpecification(packageName: "Car",dependency: "Engine"),
-            DependencySpecification(packageName: "Engine",dependency: "")]
+        let dependencySpecifications = ["Car": ["Engine"], "Engine" :[]]
         let dependencies = dependencyResolver.resolve(dependencySpecifications)
         
         XCTAssertNotNil(dependencies)
@@ -46,21 +45,27 @@ class DependencyResolverTests: XCTestCase {
     }
     
     func test_should_resolve_packages_with_multiple_dependencies(){
-        let specifications = [DependencySpecification(packageName: "Car",dependency: "Engine"),
-            DependencySpecification(packageName: "Engine",dependency: "Carburater"),
-            DependencySpecification(packageName: "Engine",dependency: "Piston"),
-            DependencySpecification(packageName: "Carburater",dependency: ""),
-            DependencySpecification(packageName: "Piston",dependency: ""),
-            DependencySpecification(packageName: "Car",dependency: "Seat"),
-            DependencySpecification(packageName: "Seat",dependency: "Cloth"),
-            DependencySpecification(packageName: "Cloth",dependency: "")]
+        let specifications = [  "Car" : ["Engine","Seat"],
+                                "Engine" : ["Carburater","Piston"],
+                                "Carburater" : [],
+                                "Piston" : [],
+                                "Seat" : ["Cloth"],
+                                "Cloth" : []]
         
         let dependencies = dependencyResolver.resolve(specifications)
         
         XCTAssertNotNil(dependencies)
         
         if let dependencies = dependencies{
-            XCTAssertEqual(dependencies, ["Carburater","Piston","Cloth","Engine","Seat","Car"])
+            let indexOfEngine = dependencies.indexOf("Engine")
+            let indexOfPiston = dependencies.indexOf("Piston")
+            let indexOfCar = dependencies.indexOf("Car")
+            let indexOfCloth = dependencies.indexOf("Cloth")
+            let indexOfSeat = dependencies.indexOf("Seat")
+            XCTAssert(indexOfPiston < indexOfEngine)
+            XCTAssert(indexOfEngine < indexOfCar)
+            XCTAssert(indexOfCloth < indexOfSeat)
+            
         }
     }
     
@@ -78,15 +83,16 @@ class DependencyResolverTests: XCTestCase {
     }
     
     func test_can_identify_packages_with_no_dependencies(){
-        let specifications = [DependencySpecification(packageName: "Car",dependency: "Engine"),
-            DependencySpecification(packageName: "Engine",dependency: "Carburater"),
-            DependencySpecification(packageName: "Engine",dependency: "Piston"),
-            DependencySpecification(packageName: "Carburater",dependency: ""),
-            DependencySpecification(packageName: "Piston",dependency: "")]
+        let specifications = [  "Car" : ["Engine","Seat"],
+            "Engine" : ["Carburater","Piston"],
+            "Carburater" : [],
+            "Piston" : [],
+            "Seat" : ["Cloth"],
+            "Cloth" : []]
         
         let packagesWithNoDependencies = dependencyResolver.getPackagesWithNoDependencies(specifications)
         
-        XCTAssertEqual(packagesWithNoDependencies,Set<String>(["Piston","Carburater"]))
+        XCTAssertEqual(packagesWithNoDependencies,["Cloth", "Carburater", "Piston"])
     }
     
     //    func testPerformanceExample() {

@@ -10,16 +10,15 @@ import Foundation
 
 class DependencyResolver {
     
-    func resolve(packageSpecifications:[DependencySpecification]?) -> [String]?{
-        var dependencySpecifications = packageSpecifications
+    func resolve(packageSpecifications:[String:[String]]?) -> [String]?{
         
-        var dependencies : [String]?
+        var sortedDependencies : [String]?
         
-        guard let specifications = dependencySpecifications else{
-            return dependencies
+        guard let _ = packageSpecifications else{
+            return sortedDependencies
         }
         
-        dependencies = Array<String>()
+        var dependencySpecifications = packageSpecifications!
         
         /*
         L ← Empty list that will contain the sorted elements
@@ -37,51 +36,58 @@ class DependencyResolver {
         return L (a topologically sorted order)
         */
         
-        let noDependencyPackages = getPackagesWithNoDependencies(specifications)
-        dependencySpecifications = dependencySpecifications?.filter({ (spec) -> Bool in
-            return spec.dependency != ""
-        })
+        var packageVertices = getPackagesWithNoDependencies(dependencySpecifications)
         
-        // n in S
-        for noDependencyPackage in noDependencyPackages{
-            //add n to L
-            dependencies?.append(noDependencyPackage)
-            //get all packages dependent on given package -- edges from n -> m
-            let dependentPackageSpecs = dependencySpecifications?.filter({ (spec) -> Bool in
-               return spec.dependency == noDependencyPackage
-            })
-            guard let dependentPackages = dependentPackageSpecs else{
-                break
-            }
-            
-            for spec in dependentPackages{
-                let otherDependencies = dependencySpecifications?.filter({ (specification) -> Bool in
-                    return specification.packageName == spec.packageName && specification.dependency != spec.dependency
-                })
-                
-                dependencySpecifications  = dependencySpecifications?.filter({ (specification) -> Bool in
-                    return spec.packageName != specification.packageName && spec.dependency != specification.dependency
-                })
-                
-                if otherDependencies?.count == 0 {
-                    dependencies?.append(spec.packageName)
-                }
-            }
+        sortedDependencies = [String]()
+        
+        for package in packageVertices{
+            dependencySpecifications.removeValueForKey(package)
         }
         
-        return dependencies
+        
+        
+        //while S is non-empty do
+        while packageVertices.count > 0 {
+            packageVertices.sortInPlace()
+            
+            //remove a node n from S
+            let packageVertice = packageVertices.removeLast()
+            
+            //add n to L
+            sortedDependencies?.append(packageVertice)
+            
+            for (package,dependencies) in dependencySpecifications{
+                //get all packages dependent on given package -- edges from n -> m
+                
+                let dependentPackages = dependencies.filter({ $0 == packageVertice
+                })
+                
+                if dependentPackages.count > 0 {
+                    //remove edge e from the graph
+
+                    dependencySpecifications[package] = dependencySpecifications[package]?.filter({$0 != packageVertice})
+                    
+                    // if m has no other incoming edges then insert m into S
+                    if dependencySpecifications[package]?.count == 0 {
+                        packageVertices.append(package)
+                    }
+                }
+            }
+            
+        }
+        return sortedDependencies
     }
     
     
     
-    func getPackagesWithNoDependencies(dependencySpecifications:[DependencySpecification])->Set<String>{
-        var packageSet  = Set<String>()
-        for specification in dependencySpecifications{
-            if specification.dependency.isEmpty{
-                packageSet.insert(specification.packageName)
+    func getPackagesWithNoDependencies(packageSpecifications:[String:[String]])->[String]{
+        var packages  = [String]()
+        for (package,deps) in packageSpecifications{
+            if deps == [] {
+                packages.append(package)
             }
         }
-        return packageSet
+        return packages
     }
     
     
