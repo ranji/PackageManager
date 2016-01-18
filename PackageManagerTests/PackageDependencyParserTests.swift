@@ -22,22 +22,49 @@ class PackageDependencyParserTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
         super.tearDown()
     }
-
+    
     func test_should_parse_array_to_graph() {
         let packageList = ["Car: Engine","Engine: Piston","Engine: Carburater", "Piston: ","Carburater: "]
-        let packageDependencyGraph = dependencyParser.createDependencyGraph(packageList)
+        let graph = try! dependencyParser.createDependencyGraph(packageList)
         
-        XCTAssertEqual(4, packageDependencyGraph?.count)
+        XCTAssertEqual(4, graph?.count)
+        
+        XCTAssertEqual(graph!["Car"]!,["Engine"])
+        XCTAssertEqual(graph!["Piston"]!,[""])
+        XCTAssertEqual(graph!["Engine"]!,["Piston","Carburater"])
     }
     
     func test_should_throw_if_array_is_not_in_correct_format(){
         let packageList = [": Engine"]
-        let packageDependencyGraph = dependencyParser.createDependencyGraph(packageList)
         
-        XCTAssertTrue(false)
+        do {
+            let graph =  try dependencyParser.createDependencyGraph(packageList)
+            XCTAssertTrue(graph?.count == 0)
+        }catch GraphError.WrongSpecificationFormat{
+            XCTAssertTrue(true)
+        }
+        catch{
+            XCTAssertTrue(false)
+        }
+    }
+    
+    func test_should_throw_if_an_empty_string_is_passed_for_specification(){
+        let packageList = [""]
+        
+        do {
+            let graph =  try dependencyParser.createDependencyGraph(packageList)
+            XCTAssertTrue(graph?.count == 0)
+        }catch GraphError.WrongSpecificationFormat{
+            XCTAssertTrue(true)
+        }
+        catch{
+            XCTAssertTrue(false)
+        }
+        
+        
         
     }
-
     
-
+    
+    
 }

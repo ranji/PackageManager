@@ -8,8 +8,32 @@
 
 import Foundation
 
+protocol PackageDependencyParsingProtocol{
+    func createDependencyGraph(packageDependencySpecifications:[String]) throws ->[String:[String]]?
+}
+
 class PackageDependencyParser {
-    func createDependencyGraph(packageDependencies:[String])->[String:[String]]?{
-       return nil
+    func createDependencyGraph(packageDependencySpecifications:[String]) throws ->[String:[String]]?{
+        var graph = [String:[String]]()
+        for specification in packageDependencySpecifications{
+            let parts = specification.componentsSeparatedByString(": ")
+            let packageName = parts[0]
+            
+            if packageName.isEmpty{
+                throw GraphError.WrongSpecificationFormat("\(specification) format is incorrect")
+            }
+            
+            let dependency = parts[1]
+            
+            if graph.keys.contains(packageName) == false{
+               graph[packageName] = []
+            }
+            
+            if graph[packageName]?.contains(dependency) ==  false{
+                graph[packageName]?.append(dependency)
+            }
+        }
+        
+        return graph
     }
 }

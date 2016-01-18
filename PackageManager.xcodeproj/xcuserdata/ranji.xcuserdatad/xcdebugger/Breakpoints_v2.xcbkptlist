@@ -2,4 +2,54 @@
 <Bucket
    type = "1"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PackageManager/PackageDependencyParser.swift"
+            timestampString = "474822883.130573"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "15"
+            endingLineNumber = "15"
+            landmarkName = "createDependencyGraph(_:)"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PackageManagerTests.PackageDependencyParser.createDependencyGraph (PackageManagerTests.PackageDependencyParser)(Swift.Array&lt;Swift.String&gt;) throws -&gt; Swift.Optional&lt;Swift.Dictionary&lt;Swift.String, Swift.Array&lt;Swift.String&gt;&gt;&gt;"
+                  moduleName = "PackageManagerTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ranji/Documents/repos/PackageManager/PackageManager/PackageDependencyParser.swift"
+                  timestampString = "474824119.781734"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "15"
+                  endingLineNumber = "15"
+                  offsetFromSymbolStart = "592">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PackageManager.PackageDependencyParser.createDependencyGraph (PackageManager.PackageDependencyParser)(Swift.Array&lt;Swift.String&gt;) throws -&gt; Swift.Optional&lt;Swift.Dictionary&lt;Swift.String, Swift.Array&lt;Swift.String&gt;&gt;&gt;"
+                  moduleName = "PackageManager"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ranji/Documents/repos/PackageManager/PackageManager/PackageDependencyParser.swift"
+                  timestampString = "474824119.784206"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "15"
+                  endingLineNumber = "15"
+                  offsetFromSymbolStart = "592">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>
