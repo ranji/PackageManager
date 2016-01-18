@@ -7,10 +7,14 @@
 //
 
 import Foundation
+protocol TopologicalSorting{
+    func sort(packageSpecifications:[String:[String]]?) throws -> [String]?
+}
 
-class DependencyResolver {
+class KahnsTopologicalSorter:TopologicalSorting {
     
-    func resolve(packageSpecifications:[String:[String]]?) throws -> [String]?{
+    
+    func sort(packageSpecifications:[String:[String]]?) throws -> [String]?{
         
         var sortedDependencies : [String]?
         

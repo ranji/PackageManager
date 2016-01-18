@@ -8,9 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		21BAFDE51C4C124C003AAAAA /* PackageManager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21BAFDDA1C4C124C003AAAAA /* PackageManager.framework */; };
-		21BAFDF51C4C12A8003AAAAA /* DependencyResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BAFDF41C4C12A8003AAAAA /* DependencyResolver.swift */; };
-		21BAFDF61C4C12A8003AAAAA /* DependencyResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BAFDF41C4C12A8003AAAAA /* DependencyResolver.swift */; };
-		21BAFDF81C4C12E0003AAAAA /* DependencyResolverTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BAFDF71C4C12E0003AAAAA /* DependencyResolverTests.swift */; };
+		21BAFDF51C4C12A8003AAAAA /* KahnsTopologicalSorter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BAFDF41C4C12A8003AAAAA /* KahnsTopologicalSorter.swift */; };
+		21BAFDF61C4C12A8003AAAAA /* KahnsTopologicalSorter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BAFDF41C4C12A8003AAAAA /* KahnsTopologicalSorter.swift */; };
+		21BAFDF81C4C12E0003AAAAA /* KahnsTopologicalSorterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BAFDF71C4C12E0003AAAAA /* KahnsTopologicalSorterTests.swift */; };
 		21BAFDFA1C4C51A3003AAAAA /* GraphError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BAFDF91C4C51A3003AAAAA /* GraphError.swift */; };
 		21BAFDFB1C4C51A3003AAAAA /* GraphError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BAFDF91C4C51A3003AAAAA /* GraphError.swift */; };
 		21BAFDFD1C4CB978003AAAAA /* PackageDependencyParserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BAFDFC1C4CB978003AAAAA /* PackageDependencyParserTests.swift */; };
@@ -33,8 +33,8 @@
 		21BAFDDF1C4C124C003AAAAA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		21BAFDE41C4C124C003AAAAA /* PackageManagerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PackageManagerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		21BAFDEB1C4C124C003AAAAA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		21BAFDF41C4C12A8003AAAAA /* DependencyResolver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DependencyResolver.swift; sourceTree = "<group>"; };
-		21BAFDF71C4C12E0003AAAAA /* DependencyResolverTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DependencyResolverTests.swift; sourceTree = "<group>"; };
+		21BAFDF41C4C12A8003AAAAA /* KahnsTopologicalSorter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KahnsTopologicalSorter.swift; sourceTree = "<group>"; };
+		21BAFDF71C4C12E0003AAAAA /* KahnsTopologicalSorterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KahnsTopologicalSorterTests.swift; sourceTree = "<group>"; };
 		21BAFDF91C4C51A3003AAAAA /* GraphError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphError.swift; sourceTree = "<group>"; };
 		21BAFDFC1C4CB978003AAAAA /* PackageDependencyParserTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PackageDependencyParserTests.swift; sourceTree = "<group>"; };
 		21BAFDFE1C4D318D003AAAAA /* PackageDependencyParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PackageDependencyParser.swift; sourceTree = "<group>"; };
@@ -81,7 +81,7 @@
 			isa = PBXGroup;
 			children = (
 				21BAFDDF1C4C124C003AAAAA /* Info.plist */,
-				21BAFDF41C4C12A8003AAAAA /* DependencyResolver.swift */,
+				21BAFDF41C4C12A8003AAAAA /* KahnsTopologicalSorter.swift */,
 				21BAFDF91C4C51A3003AAAAA /* GraphError.swift */,
 				21BAFDFE1C4D318D003AAAAA /* PackageDependencyParser.swift */,
 			);
@@ -92,7 +92,7 @@
 			isa = PBXGroup;
 			children = (
 				21BAFDEB1C4C124C003AAAAA /* Info.plist */,
-				21BAFDF71C4C12E0003AAAAA /* DependencyResolverTests.swift */,
+				21BAFDF71C4C12E0003AAAAA /* KahnsTopologicalSorterTests.swift */,
 				21BAFDFC1C4CB978003AAAAA /* PackageDependencyParserTests.swift */,
 			);
 			path = PackageManagerTests;
@@ -207,7 +207,7 @@
 			files = (
 				21BAFDFF1C4D318D003AAAAA /* PackageDependencyParser.swift in Sources */,
 				21BAFDFA1C4C51A3003AAAAA /* GraphError.swift in Sources */,
-				21BAFDF51C4C12A8003AAAAA /* DependencyResolver.swift in Sources */,
+				21BAFDF51C4C12A8003AAAAA /* KahnsTopologicalSorter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -215,9 +215,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				21BAFDF81C4C12E0003AAAAA /* DependencyResolverTests.swift in Sources */,
+				21BAFDF81C4C12E0003AAAAA /* KahnsTopologicalSorterTests.swift in Sources */,
 				21BAFDFD1C4CB978003AAAAA /* PackageDependencyParserTests.swift in Sources */,
-				21BAFDF61C4C12A8003AAAAA /* DependencyResolver.swift in Sources */,
+				21BAFDF61C4C12A8003AAAAA /* KahnsTopologicalSorter.swift in Sources */,
 				21BAFE001C4D32CF003AAAAA /* PackageDependencyParser.swift in Sources */,
 				21BAFDFB1C4C51A3003AAAAA /* GraphError.swift in Sources */,
 			);

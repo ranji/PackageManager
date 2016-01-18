@@ -8,13 +8,13 @@
 
 import XCTest
 
-class DependencyResolverTests: XCTestCase {
+class KahnsTopologicalSorterTests: XCTestCase {
     
-    var dependencyResolver : DependencyResolver!
+    var sorter : KahnsTopologicalSorter!
     
     override func setUp() {
         super.setUp()
-        dependencyResolver =  DependencyResolver()
+        sorter =  KahnsTopologicalSorter()
         
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }
@@ -28,14 +28,14 @@ class DependencyResolverTests: XCTestCase {
     func test_should_resolve_all_dependencies(){
         let dependencySpecifications = ["Car": ["Engine"], "Engine" :[]]
 
-        let dependencies = try! dependencyResolver.resolve(dependencySpecifications)
+        let dependencies = try! sorter.sort(dependencySpecifications)
         
         XCTAssertEqual(dependencies?.count , 2)
     }
     
     func test_should_resolve_dependencies_in_order(){
         let dependencySpecifications = ["Car": ["Engine"], "Engine" :[]]
-        let dependencies = try! dependencyResolver.resolve(dependencySpecifications)
+        let dependencies = try! sorter.sort(dependencySpecifications)
         
         XCTAssertNotNil(dependencies)
         
@@ -52,7 +52,7 @@ class DependencyResolverTests: XCTestCase {
                                 "Seat" : ["Cloth"],
                                 "Cloth" : []]
         
-        let dependencies = try! dependencyResolver.resolve(specifications)
+        let dependencies = try! sorter.sort(specifications)
         
         XCTAssertNotNil(dependencies)
         
@@ -70,7 +70,7 @@ class DependencyResolverTests: XCTestCase {
     }
     
     func test_empty_specification_should_yeild_zero_dependencies(){
-        let dependencies = try! dependencyResolver.resolve(nil)
+        let dependencies = try! sorter.sort(nil)
         XCTAssertNil(dependencies)
     }
     
@@ -79,7 +79,7 @@ class DependencyResolverTests: XCTestCase {
             "Engine" : ["Piston","Car" ],
             "Piston" : []]
         do {
-            let _ = try dependencyResolver.resolve(specifications)
+            let _ = try sorter.sort(specifications)
         } catch GraphError.CyclicDependencyDetected{
             XCTAssertTrue(true)
         } catch{
@@ -95,7 +95,7 @@ class DependencyResolverTests: XCTestCase {
             "Seat" : ["Cloth"],
             "Cloth" : []]
         
-        let packagesWithNoDependencies = dependencyResolver.getPackagesWithNoDependencies(specifications)
+        let packagesWithNoDependencies = sorter.getPackagesWithNoDependencies(specifications)
         
         XCTAssertEqual(packagesWithNoDependencies,["Cloth", "Carburater", "Piston"])
     }
