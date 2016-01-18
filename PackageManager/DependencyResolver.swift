@@ -9,10 +9,9 @@
 import Foundation
 
 class DependencyResolver {
-    var dependencySpecifications : [DependencySpecification]?
     
-    func resolve(dependencySpecifications:[DependencySpecification]?) -> [String]?{
-        self.dependencySpecifications = dependencySpecifications
+    func resolve(packageSpecifications:[DependencySpecification]?) -> [String]?{
+        var dependencySpecifications = packageSpecifications
         
         var dependencies : [String]?
         
@@ -39,13 +38,16 @@ class DependencyResolver {
         */
         
         let noDependencyPackages = getPackagesWithNoDependencies(specifications)
+        dependencySpecifications = dependencySpecifications?.filter({ (spec) -> Bool in
+            return spec.dependency != ""
+        })
         
         // n in S
         for noDependencyPackage in noDependencyPackages{
             //add n to L
             dependencies?.append(noDependencyPackage)
             //get all packages dependent on given package -- edges from n -> m
-            let dependentPackageSpecs = self.dependencySpecifications?.filter({ (spec) -> Bool in
+            let dependentPackageSpecs = dependencySpecifications?.filter({ (spec) -> Bool in
                return spec.dependency == noDependencyPackage
             })
             guard let dependentPackages = dependentPackageSpecs else{
@@ -53,11 +55,13 @@ class DependencyResolver {
             }
             
             for spec in dependentPackages{
-                let otherDependencies = self.dependencySpecifications?.filter({ (specification) -> Bool in
+                let otherDependencies = dependencySpecifications?.filter({ (specification) -> Bool in
                     return specification.packageName == spec.packageName && specification.dependency != spec.dependency
                 })
                 
-                removeSpecification(spec)
+                dependencySpecifications  = dependencySpecifications?.filter({ (specification) -> Bool in
+                    return spec.packageName != specification.packageName && spec.dependency != specification.dependency
+                })
                 
                 if otherDependencies?.count == 0 {
                     dependencies?.append(spec.packageName)
@@ -68,12 +72,7 @@ class DependencyResolver {
         return dependencies
     }
     
-    func removeSpecification(specification:DependencySpecification){
-        let filtered = self.dependencySpecifications?.filter({ (spec) -> Bool in
-            return spec.packageName != specification.packageName && spec.dependency != specification.dependency
-        })
-        self.dependencySpecifications = filtered
-    }
+    
     
     func getPackagesWithNoDependencies(dependencySpecifications:[DependencySpecification])->Set<String>{
         var packageSet  = Set<String>()
