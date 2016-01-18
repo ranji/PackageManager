@@ -11,8 +11,11 @@
 		21BAFDF51C4C12A8003AAAAA /* DependencyResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BAFDF41C4C12A8003AAAAA /* DependencyResolver.swift */; };
 		21BAFDF61C4C12A8003AAAAA /* DependencyResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BAFDF41C4C12A8003AAAAA /* DependencyResolver.swift */; };
 		21BAFDF81C4C12E0003AAAAA /* DependencyResolverTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BAFDF71C4C12E0003AAAAA /* DependencyResolverTests.swift */; };
-		21BAFDFA1C4C51A3003AAAAA /* DependencySpecification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BAFDF91C4C51A3003AAAAA /* DependencySpecification.swift */; };
-		21BAFDFB1C4C51A3003AAAAA /* DependencySpecification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BAFDF91C4C51A3003AAAAA /* DependencySpecification.swift */; };
+		21BAFDFA1C4C51A3003AAAAA /* GraphError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BAFDF91C4C51A3003AAAAA /* GraphError.swift */; };
+		21BAFDFB1C4C51A3003AAAAA /* GraphError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BAFDF91C4C51A3003AAAAA /* GraphError.swift */; };
+		21BAFDFD1C4CB978003AAAAA /* PackageDependencyParserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BAFDFC1C4CB978003AAAAA /* PackageDependencyParserTests.swift */; };
+		21BAFDFF1C4D318D003AAAAA /* PackageDependencyParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BAFDFE1C4D318D003AAAAA /* PackageDependencyParser.swift */; };
+		21BAFE001C4D32CF003AAAAA /* PackageDependencyParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BAFDFE1C4D318D003AAAAA /* PackageDependencyParser.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,7 +35,9 @@
 		21BAFDEB1C4C124C003AAAAA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		21BAFDF41C4C12A8003AAAAA /* DependencyResolver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DependencyResolver.swift; sourceTree = "<group>"; };
 		21BAFDF71C4C12E0003AAAAA /* DependencyResolverTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DependencyResolverTests.swift; sourceTree = "<group>"; };
-		21BAFDF91C4C51A3003AAAAA /* DependencySpecification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DependencySpecification.swift; sourceTree = "<group>"; };
+		21BAFDF91C4C51A3003AAAAA /* GraphError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphError.swift; sourceTree = "<group>"; };
+		21BAFDFC1C4CB978003AAAAA /* PackageDependencyParserTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PackageDependencyParserTests.swift; sourceTree = "<group>"; };
+		21BAFDFE1C4D318D003AAAAA /* PackageDependencyParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PackageDependencyParser.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,7 +82,8 @@
 			children = (
 				21BAFDDF1C4C124C003AAAAA /* Info.plist */,
 				21BAFDF41C4C12A8003AAAAA /* DependencyResolver.swift */,
-				21BAFDF91C4C51A3003AAAAA /* DependencySpecification.swift */,
+				21BAFDF91C4C51A3003AAAAA /* GraphError.swift */,
+				21BAFDFE1C4D318D003AAAAA /* PackageDependencyParser.swift */,
 			);
 			path = PackageManager;
 			sourceTree = "<group>";
@@ -87,6 +93,7 @@
 			children = (
 				21BAFDEB1C4C124C003AAAAA /* Info.plist */,
 				21BAFDF71C4C12E0003AAAAA /* DependencyResolverTests.swift */,
+				21BAFDFC1C4CB978003AAAAA /* PackageDependencyParserTests.swift */,
 			);
 			path = PackageManagerTests;
 			sourceTree = "<group>";
@@ -198,7 +205,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				21BAFDFA1C4C51A3003AAAAA /* DependencySpecification.swift in Sources */,
+				21BAFDFF1C4D318D003AAAAA /* PackageDependencyParser.swift in Sources */,
+				21BAFDFA1C4C51A3003AAAAA /* GraphError.swift in Sources */,
 				21BAFDF51C4C12A8003AAAAA /* DependencyResolver.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -208,8 +216,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				21BAFDF81C4C12E0003AAAAA /* DependencyResolverTests.swift in Sources */,
+				21BAFDFD1C4CB978003AAAAA /* PackageDependencyParserTests.swift in Sources */,
 				21BAFDF61C4C12A8003AAAAA /* DependencyResolver.swift in Sources */,
-				21BAFDFB1C4C51A3003AAAAA /* DependencySpecification.swift in Sources */,
+				21BAFE001C4D32CF003AAAAA /* PackageDependencyParser.swift in Sources */,
+				21BAFDFB1C4C51A3003AAAAA /* GraphError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -393,6 +403,7 @@
 				21BAFDF01C4C124C003AAAAA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		21BAFDF11C4C124C003AAAAA /* Build configuration list for PBXNativeTarget "PackageManagerTests" */ = {
 			isa = XCConfigurationList;
@@ -401,6 +412,7 @@
 				21BAFDF31C4C124C003AAAAA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

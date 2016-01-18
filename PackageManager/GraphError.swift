@@ -8,16 +8,6 @@
 
 import Foundation
 
-class DependencySpecification {
-    var packageName: String
-    var dependency: String
-    
-    init(packageName:String, dependency:String = ""){
-        self.packageName = packageName
-        self.dependency = dependency
-    }
-}
-
 enum GraphError:ErrorType{
     case CyclicDependencyDetected
 }
