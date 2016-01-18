@@ -9,11 +9,29 @@
 import Foundation
 
 class PackageDependencyResolver {
+    let dependencyParser:PackageDependencyParsingProtocol
+    let sorter:TopologicalSortingProtocol
+    
     init(dependencyParser:PackageDependencyParsingProtocol, sorter:TopologicalSortingProtocol){
-        
+        self.dependencyParser = dependencyParser
+        self.sorter = sorter
     }
     
     func resolve (packageList:[String]) -> [String]?{
-        return nil
+        var sortedPackageDependencies : [String]?
+        do{
+            let packageSpecificationGraph = try self.dependencyParser.createDependencyGraph(packageList)
+            sortedPackageDependencies = try self.sorter.sort(packageSpecificationGraph)
+            
+        }catch GraphError.WrongSpecificationFormat(let errorMessage){
+            print(errorMessage)
+        }catch GraphError.CyclicDependencyDetected(let errorMessage){
+            print(errorMessage)
+        }
+        catch{
+            print("unexpected error")
+        }
+        return sortedPackageDependencies
+        
     }
 }

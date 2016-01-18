@@ -18,17 +18,18 @@ class PackageDependencyResolverTests: XCTestCase {
     override func tearDown() {
         super.tearDown()
     }
-
+    
     func test_should_integrate_parser_and_sorter() {
-       let packageList = ["Seat: Cloth" ,"Car: Engine","Cloth: ","Engine: Piston","Engine: Carburater", "Car: Seat","Piston: ","Carburater: "]
+        let packageList = ["Seat: Cloth" ,"Car: Engine","Cloth: ","Engine: Piston","Engine: Carburater", "Car: Seat","Piston: ","Carburater: "]
         let sortedDependencies = packageDependencyResolver.resolve(packageList)
         XCTAssertTrue(sortedDependencies?.count == 6)
+        
     }
-
+    
     func testPerformanceExample() {
         self.measureBlock {
             // TODO: Add a giant list of package dependencies here to set benchmarks
         }
     }
-
+    
 }

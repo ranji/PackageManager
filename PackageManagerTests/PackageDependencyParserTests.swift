@@ -28,7 +28,7 @@ class PackageDependencyParserTests: XCTestCase {
         XCTAssertEqual(4, graph?.count)
         
         XCTAssertEqual(graph!["Car"]!,["Engine"])
-        XCTAssertEqual(graph!["Piston"]!,[""])
+        XCTAssertEqual(graph!["Piston"]!,[])
         XCTAssertEqual(graph!["Engine"]!,["Piston","Carburater"])
     }
     

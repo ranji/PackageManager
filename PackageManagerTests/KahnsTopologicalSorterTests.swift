@@ -24,7 +24,7 @@ class KahnsTopologicalSorterTests: XCTestCase {
     
     func test_should_resolve_all_dependencies(){
         let dependencySpecifications = ["Car": ["Engine"], "Engine" :[]]
-
+        
         let dependencies = try! sorter.sort(dependencySpecifications)
         
         XCTAssertEqual(dependencies?.count , 2)
@@ -43,11 +43,11 @@ class KahnsTopologicalSorterTests: XCTestCase {
     
     func test_should_resolve_packages_with_multiple_dependencies(){
         let specifications = [  "Car" : ["Engine","Seat"],
-                                "Engine" : ["Carburater","Piston"],
-                                "Carburater" : [],
-                                "Piston" : [],
-                                "Seat" : ["Cloth"],
-                                "Cloth" : []]
+            "Engine" : ["Carburater","Piston"],
+            "Carburater" : [],
+            "Piston" : [],
+            "Seat" : ["Cloth"],
+            "Cloth" : []]
         
         let dependencies = try! sorter.sort(specifications)
         
@@ -56,12 +56,15 @@ class KahnsTopologicalSorterTests: XCTestCase {
         if let dependencies = dependencies{
             let indexOfEngine = dependencies.indexOf("Engine")
             let indexOfPiston = dependencies.indexOf("Piston")
+            let indexOfCarburater = dependencies.indexOf("Carburater")
             let indexOfCar = dependencies.indexOf("Car")
             let indexOfCloth = dependencies.indexOf("Cloth")
             let indexOfSeat = dependencies.indexOf("Seat")
             XCTAssert(indexOfPiston < indexOfEngine)
+            XCTAssert(indexOfCarburater < indexOfEngine)
             XCTAssert(indexOfEngine < indexOfCar)
             XCTAssert(indexOfCloth < indexOfSeat)
+            XCTAssert(indexOfSeat < indexOfCar)
             
         }
     }

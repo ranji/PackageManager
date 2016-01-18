@@ -11,6 +11,22 @@ protocol TopologicalSortingProtocol{
     func sort(packageSpecifications:[String:[String]]?) throws -> [String]?
 }
 
+/*
+How Kahns Topological Sort works on a directed acyclic graph - from wikipedia:
+L ← Empty list that will contain the sorted elements
+S ← Set of all nodes with no incoming edges
+while S is non-empty do
+remove a node n from S
+add n to tail of L
+for each node m with an edge e from n to m do
+remove edge e from the graph
+if m has no other incoming edges then
+insert m into S
+if graph has edges then
+return error (graph has at least one cycle)
+else
+return L (a topologically sorted order)
+*/
 class KahnsTopologicalSorter:TopologicalSortingProtocol {
     
     
@@ -24,22 +40,6 @@ class KahnsTopologicalSorter:TopologicalSortingProtocol {
         
         var dependencySpecifications = packageSpecifications!
         
-        /*
-        L ← Empty list that will contain the sorted elements
-        S ← Set of all nodes with no incoming edges
-        while S is non-empty do
-        remove a node n from S
-        add n to tail of L
-        for each node m with an edge e from n to m do
-        remove edge e from the graph
-        if m has no other incoming edges then
-        insert m into S
-        if graph has edges then
-        return error (graph has at least one cycle)
-        else
-        return L (a topologically sorted order)
-        */
-        
         var packageVertices = getPackagesWithNoDependencies(dependencySpecifications)
         
         sortedDependencies = [String]()
@@ -47,7 +47,6 @@ class KahnsTopologicalSorter:TopologicalSortingProtocol {
         for package in packageVertices{
             dependencySpecifications.removeValueForKey(package)
         }
-        
         
         
         //while S is non-empty do
@@ -68,7 +67,7 @@ class KahnsTopologicalSorter:TopologicalSortingProtocol {
                 
                 if dependentPackages.count > 0 {
                     //remove edge e from the graph
-
+                    
                     dependencySpecifications[package] = dependencySpecifications[package]?.filter({$0 != packageVertice})
                     
                     // if m has no other incoming edges then insert m into S
@@ -82,10 +81,10 @@ class KahnsTopologicalSorter:TopologicalSortingProtocol {
         
         let cyclicalReferences = dependencySpecifications.filter({ (package,dependencies) -> Bool in
             return dependencies != []
-            })
+        })
         
         if cyclicalReferences.count>0{
-            throw GraphError.CyclicDependencyDetected
+            throw GraphError.CyclicDependencyDetected("There is cyclic reference in package dependencies")
         }
         
         return sortedDependencies

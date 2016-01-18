@@ -25,11 +25,12 @@ class PackageDependencyParser : PackageDependencyParsingProtocol{
             
             let dependency = parts[1]
             
+            
             if graph.keys.contains(packageName) == false{
-               graph[packageName] = []
+                graph[packageName] = []
             }
             
-            if graph[packageName]?.contains(dependency) ==  false{
+            if graph[packageName]?.contains(dependency) ==  false && dependency.isEmpty == false{
                 graph[packageName]?.append(dependency)
             }
         }

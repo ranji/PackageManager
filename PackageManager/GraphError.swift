@@ -9,6 +9,6 @@
 import Foundation
 
 enum GraphError:ErrorType{
-    case CyclicDependencyDetected
+    case CyclicDependencyDetected(String)
     case WrongSpecificationFormat(String)
 }
