@@ -12,7 +12,7 @@ protocol PackageDependencyParsingProtocol{
     func createDependencyGraph(packageDependencySpecifications:[String]) throws ->[String:[String]]?
 }
 
-class PackageDependencyParser {
+class PackageDependencyParser : PackageDependencyParsingProtocol{
     func createDependencyGraph(packageDependencySpecifications:[String]) throws ->[String:[String]]?{
         var graph = [String:[String]]()
         for specification in packageDependencySpecifications{

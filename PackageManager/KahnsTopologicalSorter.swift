@@ -7,11 +7,11 @@
 //
 
 import Foundation
-protocol TopologicalSorting{
+protocol TopologicalSortingProtocol{
     func sort(packageSpecifications:[String:[String]]?) throws -> [String]?
 }
 
-class KahnsTopologicalSorter:TopologicalSorting {
+class KahnsTopologicalSorter:TopologicalSortingProtocol {
     
     
     func sort(packageSpecifications:[String:[String]]?) throws -> [String]?{

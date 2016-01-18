@@ -16,6 +16,9 @@
 		21BAFDFD1C4CB978003AAAAA /* PackageDependencyParserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BAFDFC1C4CB978003AAAAA /* PackageDependencyParserTests.swift */; };
 		21BAFDFF1C4D318D003AAAAA /* PackageDependencyParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BAFDFE1C4D318D003AAAAA /* PackageDependencyParser.swift */; };
 		21BAFE001C4D32CF003AAAAA /* PackageDependencyParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BAFDFE1C4D318D003AAAAA /* PackageDependencyParser.swift */; };
+		21E1F3AC1C4D432900387CA0 /* PackageDependencyResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21E1F3AB1C4D432900387CA0 /* PackageDependencyResolver.swift */; };
+		21E1F3AD1C4D432900387CA0 /* PackageDependencyResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21E1F3AB1C4D432900387CA0 /* PackageDependencyResolver.swift */; };
+		21E1F3AF1C4D435500387CA0 /* PackageDependencyResolverTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21E1F3AE1C4D435500387CA0 /* PackageDependencyResolverTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +41,8 @@
 		21BAFDF91C4C51A3003AAAAA /* GraphError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphError.swift; sourceTree = "<group>"; };
 		21BAFDFC1C4CB978003AAAAA /* PackageDependencyParserTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PackageDependencyParserTests.swift; sourceTree = "<group>"; };
 		21BAFDFE1C4D318D003AAAAA /* PackageDependencyParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PackageDependencyParser.swift; sourceTree = "<group>"; };
+		21E1F3AB1C4D432900387CA0 /* PackageDependencyResolver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PackageDependencyResolver.swift; sourceTree = "<group>"; };
+		21E1F3AE1C4D435500387CA0 /* PackageDependencyResolverTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PackageDependencyResolverTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +89,7 @@
 				21BAFDF41C4C12A8003AAAAA /* KahnsTopologicalSorter.swift */,
 				21BAFDF91C4C51A3003AAAAA /* GraphError.swift */,
 				21BAFDFE1C4D318D003AAAAA /* PackageDependencyParser.swift */,
+				21E1F3AB1C4D432900387CA0 /* PackageDependencyResolver.swift */,
 			);
 			path = PackageManager;
 			sourceTree = "<group>";
@@ -94,6 +100,7 @@
 				21BAFDEB1C4C124C003AAAAA /* Info.plist */,
 				21BAFDF71C4C12E0003AAAAA /* KahnsTopologicalSorterTests.swift */,
 				21BAFDFC1C4CB978003AAAAA /* PackageDependencyParserTests.swift */,
+				21E1F3AE1C4D435500387CA0 /* PackageDependencyResolverTests.swift */,
 			);
 			path = PackageManagerTests;
 			sourceTree = "<group>";
@@ -208,6 +215,7 @@
 				21BAFDFF1C4D318D003AAAAA /* PackageDependencyParser.swift in Sources */,
 				21BAFDFA1C4C51A3003AAAAA /* GraphError.swift in Sources */,
 				21BAFDF51C4C12A8003AAAAA /* KahnsTopologicalSorter.swift in Sources */,
+				21E1F3AC1C4D432900387CA0 /* PackageDependencyResolver.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -216,8 +224,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				21BAFDF81C4C12E0003AAAAA /* KahnsTopologicalSorterTests.swift in Sources */,
+				21E1F3AD1C4D432900387CA0 /* PackageDependencyResolver.swift in Sources */,
 				21BAFDFD1C4CB978003AAAAA /* PackageDependencyParserTests.swift in Sources */,
 				21BAFDF61C4C12A8003AAAAA /* KahnsTopologicalSorter.swift in Sources */,
+				21E1F3AF1C4D435500387CA0 /* PackageDependencyResolverTests.swift in Sources */,
 				21BAFE001C4D32CF003AAAAA /* PackageDependencyParser.swift in Sources */,
 				21BAFDFB1C4C51A3003AAAAA /* GraphError.swift in Sources */,
 			);
